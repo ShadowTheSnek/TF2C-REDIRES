@@ -1,0 +1,1440 @@
+#base items_game.txt
+
+"items_game"
+{
+	"items"
+	{
+		"11100" // The Thermal Thruster - live tf2
+		{
+			"name"	"The Thermal Thruster"
+			"item_class"			"tf_weapon_rocketpack"
+			"item_logname"	"rocketpack"
+			"item_iconname"	"rocketpack"
+			"show_in_armory"	"1"
+			"item_type_name"	"#TF_Weapon_RocketPack"
+			"item_name"			"#TF_ThermalThruster"
+			"item_description"	"Death from above! Fires a short-duration blast that launches the Pyro in the direction they are aiming. Deal 3x falling damage to anyone you land on!
+
+Weapon concept by: 'StS (PL)'.
+Playtest weapon."
+			"item_slot"			"secondary"
+			"equip_region"		"back"
+			"anim_slot"			"ITEM4"
+			"image_inventory"	"backpack/weapons/c_models/c_rocketpack/c_rocketpack"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"inspect_panel_dist" 				"60"			
+			"model_player"	"models/weapons/c_models/c_rocketpack/c_rocketpack.mdl" 
+			"attach_to_hands"	"1"
+			"attach_to_hands_vm_only"	"1"
+			"extra_wearable" "models/weapons/c_models/c_rocketpack/c_rocketpack.mdl" 
+			"item_quality"	"selfmade"
+			"propername"	"1"
+			"min_ilevel"	"1"
+			"max_ilevel"	"100"
+			"visuals"
+			{
+				"player_bodygroups"
+				{
+					"backpack"		"1"
+				}
+			}
+			"used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"			"10 0 -9"	
+				"damage force increase hidden"		"1.5"
+				"taunt attack name"			"TAUNTATK_PYRO_GASBLAST"
+				"taunt attack time"			"4.7"
+				"item_meter_charge_type"		"1"
+				"item_meter_charge_rate"		"33"
+				"holster_anim_time"			"0.5"
+				"falling_impact_radius_pushback"	"1"
+				"thermal_thruster"			"1"
+			}
+			"attributes"
+            {
+                "thermal_thruster_air_launch"
+                {
+                    "attribute_class"    "thermal_thruster_air_launch"
+                    "value"                "1"
+                }
+				"provide on active" // Provide when active
+				{
+					"attribute_class"    "provide_on_active"
+                    "value"                "1"
+				}
+				"boots falling stomp"
+				{
+					"attribute_class"    "boots_falling_stomp"
+                    "value"                "1.05"
+				}
+				"mult_player_movespeed_active"
+				{
+					"attribute_class"    "mult_player_movespeed_active"
+                    "value"                "1.05"
+				}
+				"increased air control"
+				{
+					"attribute_class"    "mod_air_control"
+                    "value"                "1.25"
+				}
+				"dmg taken increased"
+				{
+					"attribute_class"    "mult_dmgtaken"
+                    "value"                "1.1"
+				}
+				"hide ammo hud"
+				{
+					"attribute_class"    "hide_ammo_hud"
+                    "value"                "1"
+				}
+			}
+			"taunt"
+			{
+				"custom_taunt_scene_per_class"
+				{
+					"pyro"	"scenes/player/pyro/low/taunt_gasblast.vcd"
+				}
+				"custom_taunt_prop_per_class"
+				{
+					"pyro"	"models/player/items/taunts/matchbox/matchbox.mdl"
+				}
+			}
+			"visuals_red"
+			{
+				"skin" "0"
+			}
+			"visuals_blu"
+			{
+				"skin" "1"
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+		}
+
+		"11101" // Fancy-Cat Pepper-Spray
+		{
+			"name"				"Fancy-Cat Pepper-Spray"
+			"item_name"			"Fancy-Cat Pepper-Spray"
+			"item_type_name"	"#TF_Weapon_SniperRifle"
+			"item_description"	"Warning: ITEM IS MISSING 3 THINGS
+
+This is as close as I got to something a'la rapidfire / Ivy's weapon for Pyro - StS (PL)
+
+Weapon by: 'StS (PL)'.
+Pyro Playtest weapon."
+			"item_quality"		"selfmade"
+
+			"item_class"	"tf2c_weapon_hunting_revolver"
+			"item_slot"		"primary"
+			"used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"attributes"
+			{
+		"max health additive bonus"
+                {
+                    "attribute_class"    "add_maxhealth"
+                    "value"                "5.0"
+                }
+		"hidden primary max ammo bonus"
+                {
+                    "attribute_class"    "mult_maxammo_primary"
+                    "value"                "4"
+                }
+		"fire rate bonus HIDDEN"
+                {
+                    "attribute_class"    "mult_postfiredelay"
+                    "value"                "0.22"
+                }
+		"add ammo on kill" // It wasn't intended to leak, so I changed it to something nicer - StS (PL)
+                {
+                    "attribute_class"    "add_ammo_on_kill"
+                    "value"                "4"
+                }
+		"instant reload on kill" // part 2 of that
+                {
+                    "attribute_class"    "instant_reload_on_kill"
+                    "value"                "8"
+                }
+                //"charged airblast" // Doesnt have the airblast implemented yet
+                //{
+                    //"attribute_class"    "set_charged_airblast"
+                    //"value"                "1"
+                //}
+		//"apply self knockback airblast" // Doesnt have the airblast implemented yet
+                //{
+                    //"attribute_class"    "apply_self_knockback_airblast"
+                    //"value"                "1"
+                //}
+                "Set DamageType Ignite" // ignites players like a flaregun vs pyro, doesn't make them get afterburn fsr
+                {
+                    "attribute_class"    "set_dmgtype_ignite"
+                    "value"                "1"
+                }
+                "minicritboost on kill"
+                {
+                    "attribute_class"    "add_onkill_minicritboost_time"
+                    "value"                "1"
+                }
+               	 "fire rate bonus with reduced health"
+                {
+                    "attribute_class"    "mult_postfiredelay_with_reduced_health"
+                    "value"                "0.8"
+                }
+                "damage bonus vs burning"
+                {
+                    "attribute_class"    "mult_dmg_vs_burning"
+                    "value"                "1.1"
+                }
+                "crits_become_minicrits"
+                {
+                    "attribute_class"    "crits_become_minicrits"
+                    "value"                "1"
+                }
+                "mod max primary clip override"
+                {
+                    "attribute_class"    "mod_max_primary_clip_override"
+                    "value"                "36"
+                }
+		"custom rampup"
+		{
+			"attribute_class"	"mod_custom_rampup"
+			"value"				"2.5"
+		}
+                "accuracy scales damage"
+                {
+                    	"attribute_class"    "accuracy_scales_damage"
+                    	"value"                "1.15"
+                }
+
+	"hidden separator"	"1"
+		"sniper no charge"
+		{
+			"attribute_class"	"unimplemented_mod_sniper_no_charge"
+					"value"				"1"
+		}
+		"sniper no headshots"
+		{
+			"attribute_class"	"set_weapon_mode"
+			"value"				"1"
+		}
+		"sniper zoom penalty"
+		{
+			"attribute_class"	"mult_zoom_fov"
+			"value"				"0.3"
+		}
+		"damage penalty"
+		{
+			"attribute_class"	"mult_dmg"
+			"value"				"0.2"
+		}
+
+		// move these one once you get it working - tachy
+
+		"spread penalty"
+		{
+			"attribute_class"	"mult_spread_scale"
+			"value"				"1.5"
+		}
+		"weapon burn time increased" //This doesnt want to make the afterburn longer for some reason, it's like lighting up a pyro with a flaregun (one tick) still
+		{
+			"attribute_class"	"mult_wpn_burntime"
+			"value"				"2"
+		}
+		//"bullets per shot bonus" // I cant figure out how to decrease the accuracy to be closer to a SMG/Minigun, so this needs to be commented out for now
+		//{
+			//"attribute_class"	"mult_bullets_per_shot"
+			//"value"				"1.05"
+		//}
+	}
+
+			"model_world"				"models/weapons/w_models/w_revrifle_sniper.mdl"
+			"model_player"				"models/weapons/v_models/v_revrifle_sniper.mdl"
+			"attach_to_hands"			"2"
+			"static_attrs"
+			{
+				"min_viewmodel_offset"		"10 0 -10"
+				"class select override vcd"	"class_select_revrifle"
+			}
+			"visuals"
+			{
+				"sound_single_shot"	"Weapon_Winger.Single" // placeholder sounds so it doesnt hurt my ears that much
+				"sound_burst"	"Weapon_Winger.SingleCrit"
+				"animation_replacement"
+				{
+					"ACT_MP_ATTACK_STAND_PRIMARY_DEPLOYED"	"ACT_MP_ATTACK_STAND_PRIMARY_DEPLOYED_ALT"
+					"ACT_MP_ATTACK_CROUCH_PRIMARY_DEPLOYED"	"ACT_MP_ATTACK_CROUCH_PRIMARY_DEPLOYED_ALT"
+					"ACT_MP_ATTACK_SWIM_PRIMARY_DEPLOYED"	"ACT_MP_ATTACK_SWIM_PRIMARY_DEPLOYED_ALT"
+					
+					"ACT_MP_RELOAD_STAND_PRIMARY_DEPLOYED"	"ACT_MP_RELOAD_STAND_PRIMARY_DEPLOYED_ALT"
+					"ACT_MP_RELOAD_CROUCH_PRIMARY_DEPLOYED"	"ACT_MP_RELOAD_CROUCH_PRIMARY_DEPLOYED_ALT"
+					"ACT_MP_RELOAD_SWIM_PRIMARY_DEPLOYED"	"ACT_MP_RELOAD_SWIM_PRIMARY_DEPLOYED_ALT"
+					
+					"ACT_MP_ATTACK_STAND_PRIMARY"	"ACT_MP_ATTACK_STAND_PRIMARY_ALT"
+					"ACT_MP_ATTACK_CROUCH_PRIMARY"	"ACT_MP_ATTACK_CROUCH_PRIMARY_ALT"
+					"ACT_MP_ATTACK_SWIM_PRIMARY"	"ACT_MP_ATTACK_SWIM_PRIMARY_ALT"
+					
+					"ACT_MP_RELOAD_STAND_PRIMARY"	"ACT_MP_RELOAD_STAND_PRIMARY_ALT"
+					"ACT_MP_RELOAD_CROUCH_PRIMARY"	"ACT_MP_RELOAD_CROUCH_PRIMARY_ALT"
+					"ACT_MP_RELOAD_SWIM_PRIMARY"	"ACT_MP_RELOAD_SWIM_PRIMARY_ALT"
+				}
+			}
+			"item_logname"	"hunterrifle"
+			"item_iconname"	"hunterrifle"
+			
+			"image_inventory"		"backpack/weapons/w_models/w_revrifle"
+			"mouse_pressed_sound"	"ui/item_heavy_gun_pickup.wav"
+			"drop_sound"			"ui/item_heavy_gun_drop.wav"
+		}
+
+// My Sun-on-a-stick tweak (pyro)
+		"11103" // StS' Sun-on-a-Stick (pyro)
+		{
+			"name"	"Sun-on-a-Stick Pyro"
+			"item_class"	"tf_weapon_bat"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"capabilities"
+			{
+				"nameable"		"1"
+			}
+			"tags"
+			{
+				"can_deal_damage"			"1"
+				"can_deal_critical_damage"	"1"
+			}
+			"show_in_armory"	"1"
+			"item_type_name"	"#TF_Weapon_RiftFireMace"
+			"item_name"	"#TF_Unique_RiftFireMace"
+			//"item_description"	"#TF_RiftFireMace_Desc // Original Desc
+			"item_description"	"Spiky end goes into other man
+
+Tweak by: 'StS (PL)'.
+Scout/Pyro Playtest weapon."
+			"item_slot"	"melee"
+			"item_logname"	"lava_bat"
+			"item_iconname"	"lava_bat"
+			"item_quality"	"selfmade"
+			"image_inventory"	"backpack/workshop/weapons/c_models/c_rift_fire_mace/c_rift_fire_mace"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"inspect_panel_dist" 				"55"
+			"model_player"	"models/workshop/weapons/c_models/c_rift_fire_mace/c_rift_fire_mace.mdl"
+			"attach_to_hands"	"1"
+			"min_ilevel"	"10"
+			"max_ilevel"	"10"
+			"propername"	"1"
+			"used_by_classes"
+			{
+				"pyro"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -6"
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"attributes"
+			{
+                		"Set DamageType Ignite"
+                		{
+                   		 "attribute_class"    "set_dmgtype_ignite"
+                  		  "value"                "1"
+                		}
+                		"damage bonus vs burning"
+                		{
+                   			 "attribute_class"    "mult_dmg_vs_burning"
+                  			  "value"                "1.15"
+                		}
+				"damage penalty"
+				{
+					"attribute_class"	"mult_dmg"
+					"value"	"0.875"
+				}
+				"dmg penalty vs nonburning"
+				{
+					"attribute_class"	"mult_dmg_vs_nonburning"
+					"value"	"0.8"
+				}
+			"hidden separator"	"1"
+				"weapon burn time reduced"
+				{
+					"attribute_class"	"mult_wpn_burntime"
+					"value"			"0.4"
+				}
+				"weapon burn dmg reduced"
+				{
+					"attribute_class"	"mult_wpn_burndmg"
+					"value"			"1"
+				}
+				"deploy time decreased"
+				{
+					"attribute_class"	"mult_deploy_time"
+					"value"			"0.9"
+				}
+				"fire rate penalty"
+				{
+					"attribute_class"	"mult_postfiredelay"
+					"value"			"1.2"
+				}
+			}
+			"visuals"
+			{
+				"sound_melee_hit"		"Weapon_Fishwhacker.HitFlesh"
+				"sound_melee_hit_world"		"Weapon_Fishwhacker.HitWorld"
+				"sound_melee_miss"		"Weapon_Machete.Miss"
+				"sound_burst"			"Weapon_Machete.MissCrit"
+			}
+		}
+// My Sun-on-a-stick tweak (scout)
+
+		"11104" // StS' Sun-on-a-Stick (scout)
+		{
+			"name"	"Sun-on-a-Stick Scout"
+			"item_class"	"tf_weapon_bat"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"capabilities"
+			{
+				"nameable"		"1"
+			}
+			"tags"
+			{
+				"can_deal_damage"			"1"
+				"can_deal_critical_damage"	"1"
+			}
+			"show_in_armory"	"1"
+			"item_type_name"	"#TF_Weapon_RiftFireMace"
+			"item_name"	"#TF_Unique_RiftFireMace"
+			//"item_description"	"#TF_RiftFireMace_Desc // Original Desc
+			"item_description"	"Spiky end goes into other man
+
+Tweak by: 'StS (PL)'.
+Scout/Pyro Playtest weapon."
+			"item_slot"	"melee"
+			"item_logname"	"lava_bat"
+			"item_iconname"	"lava_bat"
+			"item_quality"	"selfmade"
+			"image_inventory"	"backpack/workshop/weapons/c_models/c_rift_fire_mace/c_rift_fire_mace"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"inspect_panel_dist" 				"55"
+			"model_player"	"models/workshop/weapons/c_models/c_rift_fire_mace/c_rift_fire_mace.mdl"
+			"attach_to_hands"	"1"
+			"min_ilevel"	"10"
+			"max_ilevel"	"10"
+			"propername"	"1"
+			"used_by_classes"
+			{
+				"scout"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"					"10 0 -6"
+			}
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"		"ui/item_metal_weapon_drop.wav"
+			"attributes"
+			{
+                		"Set DamageType Ignite"
+                		{
+                   		 "attribute_class"    "set_dmgtype_ignite"
+                  		  "value"                "1"
+                		}
+                		"damage bonus vs burning"
+                		{
+                   			 "attribute_class"    "mult_dmg_vs_burning"
+                  			  "value"                "1.15"
+                		}
+				"dmg taken from fire reduced on active"
+				{
+					"attribute_class"	"mult_dmgtaken_from_fire_active"
+					"value"			"0.8"
+				}
+				"dmg taken from fire increased"
+				{
+					"attribute_class"	"mult_dmgtaken_from_fire"
+					"value"			"1.2"
+				}
+				"damage penalty"
+				{
+					"attribute_class"	"mult_dmg"
+					"value"	"0.8"
+				}
+				"dmg penalty vs nonburning"
+				{
+					"attribute_class"	"mult_dmg_vs_nonburning"
+					"value"	"0.8"
+				}
+			"hidden separator"	"1"
+				"weapon burn time reduced"
+				{
+					"attribute_class"	"mult_wpn_burntime"
+					"value"			"0.25"
+				}
+				"weapon burn dmg reduced"
+				{
+					"attribute_class"	"mult_wpn_burndmg"
+					"value"			"0.5"
+				}
+				"deploy time decreased"
+				{
+					"attribute_class"	"mult_deploy_time"
+					"value"			"0.9"
+				}
+				"fire rate penalty"
+				{
+					"attribute_class"	"mult_postfiredelay"
+					"value"			"1"
+				}
+			}
+			"visuals"
+			{
+				"sound_melee_hit"		"Weapon_Fishwhacker.HitFlesh"
+				"sound_melee_hit_world"		"Weapon_Fishwhacker.HitWorld"
+				"sound_melee_miss"		"Weapon_Machete.Miss"
+				"sound_burst"			"Weapon_Machete.MissCrit"
+			}
+		}
+		"11105" // Blutspender WIP
+// Hi, Snek here! Figure out how to make it damage you while healing someone and heal you while damaging someone
+// and also make it damage enemies btw
+		{
+			"name"				"Blutspender"
+			"item_name"			"Blutspender"
+			"item_type_name"	"#TF_Weapon_MediGun"
+			"item_description"	"Healing as long as there's blood in my veins"
+			"item_quality"		"selfmade"
+
+			"item_class"	"tf_weapon_medigun"
+			"item_slot"		"secondary"
+			"used_by_classes"
+			{
+				"Medic"	"1"
+			}
+
+			"model_player"		"models/weapons/v_models/v_medigun_medic.mdl"
+			"model_world"		"models/weapons/w_models/w_medigun.mdl"
+			"attach_to_hands"	"2"
+			"extra_wearable" 	"models/player/items/medic_backpack.mdl"
+			"equip_region"		"medigun_backpack"
+			"static_attrs"
+			{
+				"min_viewmodel_offset"	"10 0 -9"
+			}
+
+			"image_inventory"		"backpack/weapons/w_models/w_medigun"
+			"mouse_pressed_sound"	"ui/item_medigun_pickup.wav"
+			"drop_sound"			"ui/item_heavy_gun_drop.wav"
+
+			"attributes"
+			{
+                		"heal rate bonus"
+                		{
+                   		 "attribute_class"    "mult_medigun_healrate"
+                 		  "value"                "1.15"
+                		}
+                		"overheal bonus"
+                		{
+                   		 "attribute_class"    "mult_medigun_overheal_amount"
+                  		  "value"                "1.2"
+                		}
+                		"overheal decay bonus"
+                		{
+                   		 "attribute_class"    "mult_medigun_overheal_decay"
+                  		  "value"                "1.2"
+                		}
+                		"heal on hit for slowfire"
+                		{
+                   		 "attribute_class"    "add_onhit_addhealth"
+                  		  "value"                "5"
+                		}
+                		"heal on kill"
+                		{
+                   		 "attribute_class"    "heal_on_kill"
+                  		  "value"                "25"
+                		}
+                		"selfdmg on hit for slowfire"
+                		{
+                   		 "attribute_class"    "add_onhit_addhealth"
+                  		  "value"                "5"
+                		}
+                		"health from healers reduced"
+                		{
+                   		 "attribute_class"    "mult_health_fromhealers"
+                  		  "value"                "0.75"
+                		}
+                		"overheal fill rate reduced"
+                		{
+                   		 "attribute_class"    "overheal_fill_rate"
+                  		  "value"                "0.25"
+                		}
+			"hidden separator"	"1"
+
+				"deploy time decreased"
+				{
+					"attribute_class"	"mult_deploy_time"
+					"value"			"0.9"
+				}
+				"medigun charge is megaheal"
+				{
+					"attribute_class"	"set_charge_type"
+					"value"			"2"
+				}
+			}
+		}
+		"11102" // The Eviction Notice - Snek's Tweak
+		{
+			"name"	"The Eviction Notice"
+			"item_description"	"Heavy's gonna make a nice necklace out of your teeth!
+
+Tweak by: 'StS (PL)'.
+Heavy Playtest weapon."
+			"item_class"	"tf_weapon_fists"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"tags"
+			{
+				"can_deal_damage"			"1"
+				"can_deal_critical_damage"	"1"
+			}
+			"show_in_armory"	"1"
+			"item_type_name"	"#TF_Weapon_Gloves"
+			"item_name"	"#TF_EvictionNotice"
+			"item_slot"	"melee"
+			"item_logname"	"eviction_notice"
+			"item_iconname"	"eviction_notice"
+			"image_inventory"	"backpack/workshop/weapons/c_models/c_eviction_notice/c_eviction_notice"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"inspect_panel_dist" 				"53"					
+			"model_player"	"models/workshop/weapons/c_models/c_eviction_notice/c_eviction_notice.mdl"
+			"attach_to_hands"	"1"
+			"item_quality"	"selfmade"
+			"min_ilevel"	"10"
+			"max_ilevel"	"10"
+			"propername"	"1"
+			"used_by_classes"
+			{
+				"heavy"	"1"
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"			"10 0 -8"
+				"mult_player_movespeed_active"	"1.2"
+			}
+			"attributes"
+			{
+				"speed_boost_on_hit"
+				{
+					"attribute_class"	"speed_boost_on_hit"
+					"value"	"3"
+				}
+				"heal on kill"
+				{
+					"attribute_class"	"heal_on_kill"
+					"value"	"20"
+				}
+				"fire rate bonus"
+				{
+					"attribute_class"	"mult_postfiredelay"
+					"value" "0.6"
+				}
+				"health from packs increased"
+				{
+					"attribute_class"	"mult_health_frompacks"
+					"value"	"1.2"
+				}
+				"damage penalty"
+				{
+					"attribute_class"	"mult_dmg"
+					"value"	"0.55"
+				}
+				"health from healers reduced"
+				{
+					"attribute_class"	"mult_health_fromhealers"
+					"value"	"0.8"
+				}
+				"active health degen"
+				{
+					"attribute_class"	"active_item_health_regen"
+					"value"	"-2"
+				}
+			//"hidden separator"	"1"
+			}
+			"visuals"
+			{
+				"sound_melee_miss"		"EvictionNotice.Swing"
+				"sound_melee_hit"		"EvictionNotice.Impact"
+				"sound_melee_hit_world"	"EvictionNotice.HitWorld"
+				"sound_melee_burst"		"EvictionNotice.ImpactCrit"
+				"animation_replacement"
+				{
+					"ACT_VM_IDLE"	"ACT_FISTS_VM_IDLE"
+					"ACT_VM_HITLEFT"	"ACT_FISTS_VM_HITLEFT"
+					"ACT_VM_HITRIGHT"	"ACT_FISTS_VM_HITRIGHT"
+					"ACT_VM_SWINGHARD"	"ACT_FISTS_VM_SWINGHARD"
+					"ACT_VM_DRAW"	"ACT_FISTS_VM_DRAW"
+					"ACT_MELEE_VM_INSPECT_START"	"ACT_MELEE_ALT3_VM_INSPECT_START"
+					"ACT_MELEE_VM_INSPECT_IDLE"		"ACT_MELEE_ALT3_VM_INSPECT_IDLE"
+					"ACT_MELEE_VM_INSPECT_END"		"ACT_MELEE_ALT3_VM_INSPECT_END"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"		"ui/item_light_gun_drop.wav"
+		}
+		"11106" // Greek Hades Chihuahua
+		{
+			"name"				"Greek Hades Chihuahua"
+			"item_name"			"Greek Hades Chihuahua"
+			"item_type_name"	"#TF_Weapon_Wrench"
+			"item_description"	"What do you get after crossbreeding a Cerberus with a Chihuahua? This apparently
+
+Weapon by: 'StS (PL)'.
+Engineer Playtest weapon.
+(Beverly Hills Chihuahua reference btw)"
+			"item_quality"		"selfmade"
+
+			"item_class"	"tf_weapon_wrench"
+			"item_slot"		"melee"
+			"used_by_classes"
+			{
+				"Engineer"	"1"
+			}
+			"attributes"
+			{
+				"mod wrench builds minisentry"
+				{
+					"attribute_class"	"wrench_builds_minisentry"
+					"value"	"1"
+				}
+				"engy sentry damage bonus"
+				{
+					"attribute_class"	"mult_engy_sentry_damage"
+					"value"	"0.75"
+				}
+				"engy sentry fire rate increased"
+				{
+					"attribute_class"	"mult_sentry_firerate"
+					"value"	"0.8"
+				}
+				"engy sentry turn rate bonus"
+				{
+					"attribute_class"	"mult_sentry_turnrate"
+					"value"	"1.1"
+				}
+				"damage bonus bullet vs sentry target"
+				{
+					"attribute_class"	"mult_dmg_bullet_vs_sentry_target"
+					"value"	"1.1"
+				}
+				"engy disposable sentries"
+				{
+					"attribute_class"	"engy_disposable_sentries"
+					"value"	"2"
+				}
+				"maxammo metal reduced"
+				{
+					"attribute_class"	"mult_maxammo_metal"
+					"value"	"0.9"
+				}
+				"Construction rate decreased"
+				{
+					"attribute_class"	"mult_construction_value"
+					"value"	"0.9"
+				}
+				"mark for death"
+				{
+					"attribute_class"	"mark_for_death"
+					"value"	"1"
+				}
+				"damage penalty"
+				{
+					"attribute_class"	"mult_dmg"
+					"value"	"0.7"
+				}
+			"hidden separator"	"1"
+				"crit mod disabled"
+				{
+					"attribute_class"	"mult_crit_chance"
+					"value"	"0.5"
+				}
+				"engy sentry knockback penalty"
+				{
+					"attribute_class"	"mult_sentry_knockback"
+					"value"	"0.8"
+				}
+				"engineer teleporter build rate multiplier"
+				{
+					"attribute_class"	"teleporter_build_rate_multiplier"
+					"value"	"0.9"
+				}
+				"engineer sentry build rate multiplier"
+				{
+					"attribute_class"	"sentry_build_rate_multiplier"
+					"value"	"2.5"
+				}
+				"mod sentrygun cost"
+				{
+					"attribute_class"	"mod_sentrygun_cost"
+					"value"	"0.6"
+				}
+				"engineer jumppad build rate multiplier"
+				{
+					"attribute_class"	"jumppad_build_rate_multiplier"
+					"value"	"1.5"
+				}
+				"engineer dispenser build rate multiplier"
+				{
+					"attribute_class"	"dispenser_build_rate_multiplier"
+					"value"	"1.5"
+				}
+				"mod jumppad cost"
+				{
+					"attribute_class"	"mod_jumppad_cost"
+					"value"	"0.9"
+				}
+			}
+			"model_player"		"models/weapons/v_models/v_wrench_engineer.mdl"
+			"model_world"		"models/weapons/w_models/w_wrench.mdl"
+			"attach_to_hands"	"2"
+			"static_attrs"
+			{
+				"wrench explain"		"1"
+				"min_viewmodel_offset"	"10 -2 -9"
+			}
+
+			"image_inventory"		"backpack/weapons/w_models/w_wrench"
+			"mouse_pressed_sound"	"ui/item_metal_weapon_pickup.wav"
+			"drop_sound"			"ui/item_metal_weapon_drop.wav"
+		}
+		"11107" // Cowgirl's Pack-a-Punch
+// NOTE: Change this into a melee instead, to do that figure out ADDCOND for charges, I wish it would also work on every class (I think it does, just not like on demo (which would be fine still, general speed boost is also good))
+		{
+			"name"			"Cowgirl's Pack-a-Punch"
+			"item_class"		"tf_wearable_demoshield"
+			"craft_class"	"weapon"
+			"craft_material_type"	"weapon"
+			"tags"
+			{
+				"can_deal_damage"			"1"
+				"can_be_equipped_by_soldier_or_demo"	"1"
+			}
+			"show_in_armory"	"1"
+			"item_type_name" 	"#TF_Wearable_Shield"
+			"item_name"		"Cowgirl's Pack-a-Punch"
+			"item_description"	"#TF_TideTurner_Desc"
+			"item_slot"		"secondary"
+			"act_as_wearable" 	"1"
+			"equip_region"		"arms"
+			"anim_slot"		"FORCE_NOT_USED"
+			"item_quality"		"selfmade"
+			"propername"		"1"
+			"min_ilevel"		"1"
+			"max_ilevel"		"100"
+			"item_logname"		"tide_turner"
+			"item_iconname"		"tide_turner"
+			"image_inventory"	"backpack/workshop/weapons/c_models/c_wheel_shield/c_wheel_shield"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"inspect_panel_dist" 			"45"
+			"model_player"	"models/weapons/c_models/c_boxing_gloves/c_boxing_gloves.mdl"
+			"attach_to_hands"	"1"
+			"drop_type"	"drop"
+			"used_by_classes"
+			{
+				"demoman"	"1"
+			}
+			"attributes"
+			{
+				"shield bash aoe knockback"
+				{
+					"attribute_class"	"add_shield_bash_aoe_knockback"
+					"value"	"64"
+				}
+				"Attack not cancel charge"
+				{
+					"attribute_class"	"attack_not_cancel_charge"
+					"value"	"1"
+				}
+				"ammo gives charge"
+				{
+					"attribute_class"	"ammo_gives_charge"
+					"value"	"1"
+				}
+				"charge impact damage increased"
+				{
+					"attribute_class"	"charge_impact_damage"
+					"value"	"1.5"
+				}
+				"sentry hit chance when shield charging mult"
+				{
+					"attribute_class"	"sentry_hit_chance_shield_charge"
+					"value"	"0.5"
+				}
+				"allowed in medieval mode"
+				{
+					"attribute_class"	"allowed_in_medieval_mode"
+					"value"	"1"
+				}
+				"full charge turn control"
+				{
+					"attribute_class"	"charge_turn_control"
+					"value"			"25"
+				}
+				"kill refills meter"
+				{
+					"attribute_class"	"kill_refills_meter"
+					"value"			"0.1"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_wood_pole_pickup.wav"
+			"drop_sound"		"ui/item_wood_pole_drop.wav"
+		}
+		"1099" // Tide Turner (no changes from life TF2)
+		{
+			"name"			"The Tide Turner"
+			"item_class"		"tf_wearable_demoshield"
+			"craft_class"		"weapon"
+			"craft_material_type"	"weapon"
+			"tags"
+			{
+				"can_deal_damage"			"1"
+				"can_be_equipped_by_soldier_or_demo"	"1"
+			}
+			"show_in_armory"	"1"
+			"item_type_name" 	"#TF_Wearable_Shield"
+			"item_name"		"#TF_TideTurner"
+			"item_description"	"#TF_TideTurner_Desc"
+			"item_slot"		"secondary"
+			"equip_region"		"arms"
+			"anim_slot"		"FORCE_NOT_USED"
+			"item_quality"		"selfmade"
+			"propername"	"1"
+			"min_ilevel"	"1"
+			"max_ilevel"	"100"
+			"item_logname"	"tide_turner"
+			"item_iconname"	"tide_turner"
+			"image_inventory"	"backpack/workshop/weapons/c_models/c_wheel_shield/c_wheel_shield"
+			"image_inventory_size_w"		"128"
+			"image_inventory_size_h"		"82"
+			"inspect_panel_dist" 			"45"
+			"model_player"	"models/workshop/weapons/c_models/c_wheel_shield/c_wheel_shield.mdl"
+			"act_as_wearable" "1"
+			"attach_to_hands"	"0"
+			"attach_to_hands_vm_only"	"1"
+			"drop_type"	"drop"
+			"used_by_classes"
+			{
+				"demoman"	"1"
+			}
+			"attributes"
+			{
+				"dmg taken from fire reduced"
+				{
+					"attribute_class"	"mult_dmgtaken_from_fire"
+					"value"			"0.85"
+				}
+				"dmg taken from blast reduced"
+				{
+					"attribute_class"	"mult_dmgtaken_from_explosions"
+					"value"			"0.85"
+				}
+				"lose demo charge on damage when charging"
+				{
+					"attribute_class"	"lose_demo_charge_on_damage_when_charging"
+					"value"				"1"
+				}
+				"allowed in medieval mode"
+				{
+					"attribute_class"	"allowed_in_medieval_mode"
+					"value"	"1"
+				}
+				"full charge turn control"
+				{
+					"attribute_class"	"charge_turn_control"
+					"value"			"50"
+				}
+				"kill refills meter"
+				{
+					"attribute_class"	"kill_refills_meter"
+					"value"			"0.75"
+				}
+			}
+			"mouse_pressed_sound"	"ui/item_wood_pole_pickup.wav"
+			"drop_sound"		"ui/item_wood_pole_drop.wav"
+		}
+		"11108" // Nothing Civilian
+		{
+			"name"				"Empty"
+			"item_name"			"Empty"
+			"item_type_name"	""
+			"item_description"	"Empty slot, as Developers intended"
+			"item_quality"		"normal"
+
+			"item_class"		"tf_wearable"
+			"item_slot"		"secondary"
+			"used_by_classes"
+			{
+				"Civilian"	"1"
+			}
+			"act_as_wearable"	    "1"
+			"anim_slot"			    "FORCE_NOT_USED"
+			//"equip_region"		    "spy_coat"
+            		//"extra_wearable"	    "models/player/items/spy/spy_flame_suit.mdl"
+			//"image_inventory"		"backpack/player/items/spy/firesuit"
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"			"ui/item_light_gun_drop.wav"
+		}
+		"11109" // Civ's Snubber
+		{
+			"name"				"snubber"
+			"item_name"			"Handymann's Little Friend"
+			"item_type_name"		"#TF_Weapon_Revolver"
+			"item_description"	"A Mann's best friend in dire needs, even if he doesn't like violencia
+
+Weapon by: 'StS (PL)'.
+Civilian Playtest Secondary"
+			"item_quality"			"selfmade"
+
+			"item_class"	"tf_weapon_revolver"
+			"item_slot"		"secondary"
+			"used_by_classes"
+			{
+				"Civilian"		"1"
+			}
+			"attributes"
+			{
+				"handymann description" "1"
+				"max health additive penalty"
+				{
+					"attribute_class"	"add_maxhealth"
+					"value" "-25"
+				}
+				"mult_player_movespeed_active decrease"
+				{
+					"attribute_class"    "mult_player_movespeed_active"
+                    			"value"	"0.75"
+				}
+			"hidden separator" "1"
+				"spread penalty"
+				{
+					"attribute_class"	"mult_spread_scale"
+					"value" "3.33"
+				}
+				"maxammo secondary reduced"
+				{
+					"attribute_class"	"mult_maxammo_secondary"
+					"value" "0.75"
+				}
+				"clip size penalty"
+				{
+					"attribute_class"    "mult_clipsize"
+                    			"value"	"1"
+				}
+				"Reload time increased"
+				{
+					"attribute_class"	"mult_reload_time_hidden"
+					"value" "1.33"
+				}
+				"damage penalty"
+				{
+					"attribute_class"	"mult_dmg"
+					"value" "0.4"
+				}
+				"apply self knockback"
+				{
+					"attribute_class"	"apply_self_knockback"
+					"value" "64"
+				}
+				"set reload single"
+				{
+					"attribute_class"	"set_reload_single"
+					"value" "1"
+				}
+			}
+			"model_player"		"models/weapons/v_models/v_revolver_spy.mdl"
+			"model_world"		"models/weapons/w_models/w_revolver.mdl"
+			"attach_to_hands"		"2"
+			"static_attrs"
+			{
+				"min_viewmodel_offset"	"10 0 -6"
+			}
+
+			"image_inventory"		"backpack/workshop/weapons/c_models/c_snub_nose/c_snub_nose"
+			"mouse_pressed_sound"		"ui/item_light_gun_pickup.wav"
+			"drop_sound"			"ui/item_light_gun_drop.wav"
+		}
+		"11110" // Fire-safe Suit Civilian
+		{
+			"name"				"fire_retardant_civ"
+			"item_name"			"Fire-safe Suit"
+			"item_type_name"		"#TF_Wearable_Suit"
+			"item_description"	"A nice, non-flammeable suit, costed me a fortune to get, but it was for sure worth it!
+
+Weapon by: 'StS (PL)'.
+Civilian Playtest Secondary."
+			"item_quality"			"selfmade"
+
+			"item_class"			"tf_wearable"
+			"item_slot"			"secondary"
+			"used_by_classes"
+			{
+				"Civilian"	"1"
+			}
+			"attributes"
+			{
+				"is_passive_weapon"
+				{
+					"attribute_class"	"is_passive_weapon"
+					"value" "1"
+				}
+				"dmg taken from fire reduced"
+				{
+					"attribute_class"	"mult_dmgtaken_from_fire"
+					"value" "0.75"
+				}
+				"move speed bonus"
+				{
+					"attribute_class"	"mult_player_movespeed"
+					"value" "1.1"
+				}
+				"dmg taken from bullets increased"
+				{
+					"attribute_class"	"mult_dmgtaken_from_bullets"
+					"value"				"1.2"
+				}
+				"healing received penalty"
+				{
+					"attribute_class"	"mult_healing_received"
+					"value"				"0.9"
+				}
+			}
+			"act_as_wearable"	    "1"
+			"anim_slot"			    "FORCE_NOT_USED"
+			//"equip_region"		    "spy_coat"
+            		//"extra_wearable"	    "models/player/items/spy/spy_flame_suit.mdl"
+			"image_inventory"		"backpack/player/items/spy/firesuit"
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"			"ui/item_light_gun_drop.wav"
+		}
+		"11111" // Full-Metal Flak Suit Civilian
+		{
+			"name"				"explosion_retardant_civ"
+			"item_name"			"Full Metal Flak Suit"
+			"item_type_name"		"#TF_Wearable_Suit"
+			"item_description"	"Thank God I didn't need this when I wisited the Balkans!
+
+Weapon by: 'StS (PL)'.
+Civilian Playtest Secondary."
+			"item_quality"			"selfmade"
+
+			"item_class"			"tf_wearable"
+			"item_slot"			"secondary"
+			"used_by_classes"
+			{
+				"Civilian"	"1"
+			}
+			"attributes"
+			{
+				"is_passive_weapon"
+				{
+					"attribute_class"	"is_passive_weapon"
+					"value" "1"
+				}
+				"dmg taken from blast reduced"
+				{
+					"attribute_class"	"mult_dmgtaken_from_explosions"
+					"value" "0.75"
+				}
+				"backstab shield"
+				{
+					"attribute_class"	"set_blockbackstab_once"
+					"value" "1"
+				}
+				"dmg taken from fire increased"
+				{
+					"attribute_class"	"mult_dmgtaken_from_fire"
+					"value"				"1.2"
+				}
+				"move speed penalty"
+				{
+					"attribute_class"	"mult_player_movespeed"
+					"value" "0.9"
+				}
+			}
+			"act_as_wearable"	    "1"
+			"anim_slot"			    "FORCE_NOT_USED"
+			//"equip_region"		    "spy_coat"
+            		//"extra_wearable"	    "models/player/items/spy/spy_flame_suit.mdl"
+			"image_inventory"		"backpack/player/items/spy/firesuit"
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"			"ui/item_light_gun_drop.wav"
+		}
+		"11112" // Bulletproof Suit Civilian
+		{
+			"name"				"bullet_retardant_civ"
+			"item_name"			"Bulletproof Suit"
+			"item_type_name"		"#TF_Wearable_Suit"
+			"item_description"	"Like my granny used to say, better safe than sorry!
+
+Weapon by: 'StS (PL)'.
+Civilian Playtest Secondary."
+			"item_quality"			"selfmade"
+
+			"item_class"			"tf_wearable"
+			"item_slot"			"secondary"
+			"used_by_classes"
+			{
+				"Civilian"	"1"
+			}
+			"attributes"
+			{
+				"is_passive_weapon"
+				{
+					"attribute_class"	"is_passive_weapon"
+					"value" "1"
+				}
+				"dmg taken from bullets reduced"
+				{
+					"attribute_class"	"mult_dmgtaken_from_bullets"
+					"value" "0.75"
+				}
+				"dmg taken from blast increased"
+				{
+					"attribute_class"	"mult_dmgtaken_from_explosion"
+					"value"				"1.2"
+				}
+			}
+			"act_as_wearable"	    "1"
+			"anim_slot"			    "FORCE_NOT_USED"
+			//"equip_region"		    "spy_coat"
+            		//"extra_wearable"	    "models/player/items/spy/spy_flame_suit.mdl"
+			"image_inventory"		"backpack/player/items/spy/firesuit"
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"			"ui/item_light_gun_drop.wav"
+		}
+		"11113" // Conductor's Problem
+		{
+			"name"				"conductors_problem"
+			"item_name"			"Conductor's Problem"
+			"item_type_name"		"Train Handle"
+			"item_description"		"Whoops! Looks like the brakes fell off!
+
+Weapon by: 'StS (PL)'.
+Civilian Playtest Melee."
+			"item_quality"		"selfmade"
+
+			"item_class"	"tf2c_weapon_umbrella"
+			"item_slot"		"melee"
+			"used_by_classes"
+			{
+				"Civilian"	"1"
+			}
+			"attributes"
+			{
+				"conductorproblem explain" "1"
+				"umbrella recharge rate decreased"
+				{
+					"attribute_class"	"umbrella_recharge_rate"
+					"value"				"1.15"
+				}
+				"civ boost cond override"
+				{
+					"attribute_class"	"add_civ_boost_override"
+					"value"				"TF_COND_DEFENSEBUFF 1"
+				}
+			}
+
+			"model_world"				"models/weapons/w_models/w_speedcane.mdl" 
+			"model_player"				"models/weapons/v_models/v_speedcane_civilian.mdl" 
+			"attach_to_hands"			"2"
+			"static_attrs"
+			{
+				"min_viewmodel_offset"	"8 0 -6"
+			}
+			"visuals"
+			{
+				"sound_melee_hit"		"Weapon_SpeedCane.HitFlesh"
+				"sound_melee_hit_world"	"Weapon_SpeedCane.HitWorld"
+			}
+			"item_logname"	"speedcane"
+			"item_iconname"	"speedcane"
+
+			"image_inventory"		"backpack/weapons/w_models/w_speedcane" 
+			"mouse_pressed_sound"	"ui/item_wood_pole_pickup.wav"
+			"drop_sound"			"ui/item_wood_pole_drop.wav"
+		}
+		"11114" // Big Lad's Load
+		{
+			"name"				"bigladsload"
+			"item_name"			"Big Lad's Load"
+			"item_type_name"		"#TF_Weapon_Grenade"
+			"item_description"		"Don't worry Lad! I've seen it in the Cartoons!
+
+Weapon by: 'StS (PL)'.
+Civilian Playtest Melee."
+			"item_quality"			"selfmade"
+
+			"item_class"			"tf_weapon_grenade_mirv"
+			"item_slot"			"secondary"
+			"used_by_classes"
+			{
+				"Demoman"	"1"
+			}
+			"attributes"
+			{
+				"BLL explain"					"1"
+				"maxammo primary increased"
+				{
+					"attribute_class"  "mult_maxammo_primary"
+					"value"            "1.25"
+				}
+				
+				"bomblets count mod mult hidden"
+				{
+					"attribute_class"  "bomblets_count_mod"
+					"value"            "0"
+				}
+				"damage blast push"
+				{
+					"attribute_class"  "damage_blast_push"
+					"value"            "512"
+				}
+				"mirv impact"
+				{
+					"attribute_class"  "mirv_impact"
+					"value"            "1"
+				}
+				"mult mirv impact damage"
+				{
+					"attribute_class"  "mult_mirv_impact_damage"
+					"value"            "3.33"
+				}
+				"single wep deploy time increased"
+				{
+					"attribute_class"  "mult_single_wep_deploy_time"
+					"value"            "1.2"
+				}
+				"disabled by wrench explain"			"1"
+				"bombinomicon effect on death"
+				{
+					"attribute_class"  "bombinomicon_effect_on_death"
+					"value"            "1"
+				}			
+			}
+
+			"model_world"		"models/weapons/w_models/w_grenade_mirv_demo.mdl"
+			"model_player"		"models/weapons/v_models/v_mirv_demo.mdl"
+			"anim_slot"		"item2"
+			"attach_to_hands"	"2"
+			"extra_wearable"	"models/player/items/charge_pack.mdl"
+			"static_attrs"
+			{
+				"min_viewmodel_offset"		"10 0 -10"
+				"class select override vcd"	"class_select_gunboats_dynamite"
+			}
+			"item_logname"	"mirv"
+			"item_iconname"	"mirv_projectile"
+
+			"image_inventory"		"backpack/weapons/w_models/w_grenade_mirv_demo"
+			"mouse_pressed_sound"	"ui/item_bag_fast_pickup.wav"
+			"drop_sound"			"ui/item_bag_drop.wav"
+		}
+		"11115" // The Mercy Killer
+		{
+			"name"				"mercykiller"
+			"item_name"			"The Mercy Killer"
+			"item_type_name"		"#TF_Weapon_SyringeGun"
+			"item_description"		"Like my granny used to say, better safe than sorry!
+
+Weapon by: 'StS (PL)'.
+Civilian Playtest Secondary."
+			"item_quality"			"selfmade"
+
+			"item_class"			"tf_weapon_syringegun_medic"
+			"craft_class"			"weapon"
+			"craft_material_type"		"weapon"
+			"item_slot"			"primary"
+			"item_quality"			"normal"
+			"image_inventory"		"backpack/weapons/w_models/w_syringegun"
+			"image_inventory_size_w"	"128"
+			"image_inventory_size_h"	"82"
+			"inspect_panel_dist" 		"44"					
+			"model_player"			"models/weapons/c_models/c_syringegun/c_syringegun.mdl"
+			"attach_to_hands"		"1"
+			"used_by_classes"
+			{
+				"medic"	"1"
+			}
+			"attributes"
+			{
+				
+			}
+			"static_attrs"
+			{
+				"min_viewmodel_offset"		"10 0 -12"
+			}
+			"mouse_pressed_sound"	"ui/item_light_gun_pickup.wav"
+			"drop_sound"		"ui/item_light_gun_drop.wav"
+		}
+	}
+	"attributes"
+	{
+		"11100" // Explain the Handymann's Little Friend (11109)
+		{
+			"name"			"handymann description"
+			"attribute_class"	"handymann_description"
+			"description_format"	"value_is_additive"
+			"stored_as_integer"	"1"
+			"effect_type"		"positive"
+
+			"description_string"	"Gives you a Ranged Weapon you can use to shoot enemies"
+		}
+		"11101" // Explain the Conductor's Problem (11113)
+		{
+			"name"			"conductorproblem explain"
+			"attribute_class"	"conductorproblem_explain"
+			"description_format"	"value_is_additive"
+			"stored_as_integer"	"1"
+
+			"description_string"	"Alt-Fire: Give defense boost to a teammate"
+		}
+		"11102" // umbrella recharge rate decreased
+		{
+			"name"			"umbrella recharge rate decreased"
+			"attribute_class"	"umbrella_recharge_rate"
+			"description_string"	"-%s1 decrease in recharge time"
+			"description_format"	"value_is_inverted_percentage"
+			"hidden"		"0"
+			"effect_type"		"negative"
+			"stored_as_integer"	"0"
+		}
+		"11103" // Active move speed description fix
+		{
+			"name"			"mult_player_movespeed_active decrease"
+			"attribute_class"	"mult_player_movespeed_active"
+			"description_string"	"-%s1 slower move speed when active"
+			"description_format"	"value_is_inverted_percentage"
+			"hidden"		"0"
+			"effect_type"		"negative"
+			"stored_as_integer"	"0"
+		}
+		"11104" // Big Lad's Load (11114) Explain
+		{
+			"name"			"BLL explain"
+			"attribute_class"	"bll_explain"
+			"description_string"	"Increased impact damage, single explosion"
+			"description_format"	"value_is_additive"
+			"stored_as_integer"	"1"
+			"effect_type"		"Positive"
+
+		}
+	}
+}
